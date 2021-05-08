@@ -20,7 +20,7 @@ var score = 0;
 function preload(){
   imposterImage = loadImage("images/imposter.png");
   backgroundImage = loadImage("images/background.jpeg");
-  gameSound = loadSound("images/recording.mp3");
+  
   gameOverImage = loadImage("images/gameOver.png");
 }
 function setup() {
@@ -45,6 +45,7 @@ function setup() {
   virus3 = new Virus(850, 400);
   virus4 = new Virus(950,400);
   virus5 = new Virus(1050,400);
+  imposter=new Virus(1150 , 400)
   // created crewmates
   crewmate1 = new Crewmate(80,270);
   crewmate2 = new Crewmate(160,270);
@@ -54,7 +55,7 @@ function setup() {
   matey.push(crewmate2);
   matey.push(crewmate3);
   matey.push(crewmate4);
-  // created ground/platform
+  // created ground/platform  
   ground1 = new Ground(600,590,1200,20);
   ground2 = new Ground(200, 490, 400, 270);
   ground3 = new Ground(700,525, 500,20);
@@ -68,7 +69,7 @@ function draw() {
   background(backgroundImage);  
   Engine.update(engine);
   edges = createEdgeSprites();
-  gameSound.loop();
+  
   textSize(20);
   fill("#00ffb3");
   text("Score:"+score, 50,50);
@@ -104,6 +105,7 @@ function draw() {
   virus2.display();
   virus3.display();
   virus4.display();
+  imposter.display();
   virus2.scoref();
   virus3.scoref();
   virus4.scoref();
